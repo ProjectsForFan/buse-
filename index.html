@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 class="header_text">Evrenin en güzel kızı mısın??</h1>
+      </div>
+      <div class="gif_container">
+        <img
+          src="https://media.tenor.com/sLkOvbmv4SgAAAAi/tkthao219-bunny.gif"
+          alt="Cute animated illustration"
+        />
+      </div>
+      <div class="buttons">
+        <button class="btn" id="yesButton" onclick="nextPage()">Hayır</button>
+        <button
+          class="btn"
+          id="noButton"
+          onmouseover="moveButton()"
+          onclick="getToNoPage()"
+        >
+          Eveet
+        </button>
+
+        <script>
+
+            var count = 0;  // the times yes button tried to be clicked
+
+            function nextPage() {
+                window.location.href = "yes_page.html";
+            }
+
+            function getToNoPage(){
+                if(count > 4){
+                    window.location.href = "no_page.html";
+                }
+                moveButton();
+            }
+
+            function moveButton() {
+                if(count < 5){
+                    var x =
+                    Math.random() *
+                    (window.innerWidth -
+                        document.getElementById("noButton").offsetWidth);
+                    var y =
+                    Math.random() *
+                    (window.innerHeight -
+                        document.getElementById("noButton").offsetHeight);
+                    document.getElementById("noButton").style.left = `${x}px`;
+                    document.getElementById("noButton").style.top = `${y}px`;
+                } 
+                count++;
+            }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
